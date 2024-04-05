@@ -1,6 +1,64 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
+
+void matrix_random(int x, int y, int m[x][y]) {
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
+            m[i][j] = rand() % 19 - 9;
+        }
+    }
+}
+
+void show_matrix(int x, int y, int m[x][y], char n[]) {
+    printf("\nExibindo Matriz(%s)\n\n", n);
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
+            printf("%d \t", m[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void sum_matrix() {
+    int linhas_a, linhas_b, colunas_a, colunas_b;
+    printf("Entre com a ordem da primeira matriz: A\nLinhas: ");
+    scanf("%d", &linhas_a);
+    printf("Colunas: ");
+    scanf("%d", &colunas_a);
+    int matriz_a[linhas_a][colunas_a];
+    printf("\nEntre com a ordem da segunda matriz: B\nLinhas: ");
+    scanf("%d", &linhas_b);
+    printf("Colunas: ");
+    scanf("%d", &colunas_b);
+    int matriz_b[linhas_b][colunas_b];
+    matrix_random(linhas_a, colunas_a, matriz_a);
+    matrix_random(linhas_b, colunas_b, matriz_b);
+    printf("Aguarde enquanto randomizamos os elementos das matrizes...\n");
+    sleep(2);
+    show_matrix(linhas_a, colunas_a, matriz_a, "A");
+    show_matrix(linhas_b, colunas_b, matriz_b, "B");
+    sleep(1);
+    if (linhas_a != linhas_b || colunas_a != colunas_b) {
+        printf("A soma não pode ser feita pois não possuem a mesma "
+               "ordem:\nA(%dx%d) e B(%dx%d)\n\n",
+               linhas_a, colunas_a, linhas_b, colunas_b);
+        sleep(1);
+    } else {
+        int matriz_subtraida[linhas_a][colunas_b];
+        for (int i = 0; i < linhas_a; i++) {
+            for (int j = 0; j < colunas_b; j++) {
+                matriz_subtraida[i][j] = matriz_a[i][j] + matriz_b[i][j];
+            }
+        }
+        show_matrix(linhas_a, linhas_b, matriz_subtraida, "A+B");
+        printf("Retornando ao menu principal\n");
+        sleep(2);
+    }
+}
+
+
 
 void bubble_sort(int *array, int num){
     for(int i = 0; i < num-1; ++i){
@@ -134,6 +192,25 @@ void intersection_array(){
 
 }
 
+void concatenate_array(){
+    int ar1[5] = {0}, ar2[5] = {0}, array[10] = {0}, step = 0;
+    printf("Array 1: \n");
+    return_array_items(ar1, 5);
+    printf("\nArray 2: \n");
+    return_array_items(ar2, 5);
+    printf("\nArray Concatenado:\n");
+    for (step; step < 10; ++step) {
+        if (step < 5) {
+            array[step] = ar1[step];
+        } else {
+            array[step] = ar2[step - 5];
+        }
+        printf("[%d]\t", array[step]);
+    }
+}
+
+
+
 int call_of_exercises(int a){
     switch (a) {
         case 1:
@@ -165,9 +242,11 @@ int call_of_exercises(int a){
             return 0;
             break;
         case 8:
+            concatenate_array();
             return 0;
             break;
         case 9:
+            sum_matrix();
             return 0;
             break;
         case 10:
