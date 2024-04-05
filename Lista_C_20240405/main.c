@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 
+void return_array_items(int *array, int len){
+    for(int i = 0; i < len; i++){
+        array[i] = 1+rand() % (20);
+        printf("%d\t", array[i]);
+    }
+}
+
 void is_primal() {
     int x, bool_primal = 1;
     printf("Digite um número: ");
@@ -43,10 +50,7 @@ void sum_media(){
 
 void lower_higher(){
     int array[9] = {0};
-    for(int i = 0; i < 9; i++){
-        array[i] = 1+rand() % (20);
-        printf("%d\t", array[i]);
-    }
+    return_array_items(array, 9);
     for(int i = 0; i < 8; ++i){
         for (int j = 0; j < 9-i-1; ++j) {
             if(array[j] > array[j+1]){
@@ -58,6 +62,11 @@ void lower_higher(){
     }
     printf("\nMenor número: %d\n", array[0]);
     printf("Maior número: %d", array[8]);
+}
+
+void inverse_array(){
+    int array[10] = {0};
+
 }
 
 int call_of_exercises(int a){
