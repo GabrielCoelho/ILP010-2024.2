@@ -2,6 +2,28 @@
 #include <stdlib.h>
 #include <time.h>
 
+void bubble_sort(int *array, int num){
+    for(int i = 0; i < num-1; ++i){
+        for (int j = 0; j < num-i-1; ++j) {
+            if(array[j] > array[j+1]){
+                int temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    }
+}
+void bubble_sort_inverse(int *array, int num){
+    for(int i = 0; i < num-1; ++i){
+        for (int j = num; j > 0; --j) {
+            if(array[j] > array[j-1]){
+                int temp = array[j];
+                array[j] = array[j-1];
+                array[j-1] = temp;
+            }
+        }
+    }
+}
 void return_array_items(int *array, int len){
     for(int i = 0; i < len; i++){
         array[i] = 1+rand() % (20);
@@ -27,7 +49,7 @@ void tabuada(){
     int x;
     printf("Digite um número: ");
     scanf("%d", &x);
-    for (int i = 0; i <= x; ++i) {
+    for (int i = 0; i <= 10; ++i) {
         printf("%d X %d = %d\n", x, i, (x*i));
     }
 }
@@ -51,21 +73,64 @@ void sum_media(){
 void lower_higher(){
     int array[9] = {0};
     return_array_items(array, 9);
-    for(int i = 0; i < 8; ++i){
-        for (int j = 0; j < 9-i-1; ++j) {
-            if(array[j] > array[j+1]){
-                int temp = array[j];
-                array[j] = array[j+1];
-                array[j+1] = temp;
-            }
-        }
-    }
+    bubble_sort(array, 9);
     printf("\nMenor número: %d\n", array[0]);
     printf("Maior número: %d", array[8]);
 }
 
 void inverse_array(){
     int array[10] = {0};
+    return_array_items(array, 10);
+    bubble_sort(array, 10);
+    printf("\nVetor em ordem crescente:\n");
+    for (int i = 0; i < 10; ++i) {
+        printf("[%d] \t", array[i]);
+    }
+    printf("\nVetor em ordem decrescente:\n");
+    bubble_sort_inverse(array, 10);
+    for (int i = 0; i < 10; ++i) {
+        printf("[%d] \t", array[i]);
+    }
+}
+
+void distinct_elements(){
+    int array[8] = {0};
+    int contagem = 0, distinto = 0;
+    return_array_items(array, 8);
+    for (int i = 0; i < 7; ++i) {
+        for (int j = 1; j < 7; ++j) {
+            if (array[i] != array[j]){
+                contagem += 1;
+                continue;
+            }else{
+                contagem -=1;
+            }
+        }
+        if(contagem != 0){
+            distinto +=1;
+            contagem = 0;
+        }
+    }
+    if(distinto != 0) {
+        printf("\nForam encontrados %d elementos distintos no array!", distinto);
+    } else{
+        printf("\nNenhum elemento é distinto no array\n");
+    }
+}
+
+void intersection_array(){
+    int array[10] = {0}, array_2[10] = {0};
+    return_array_items(array, 10);
+    printf("\n");
+    return_array_items(array_2, 10);
+    for(int i = 0; i < 10; ++i){
+        for (int j = 0; j < 10; ++j) {
+            if(array[i] == array_2[j]){
+                printf("\nEncontrado o elemento %d na posição Array1(%d) "
+                       "= Array2(%d)\n", array[i], i+1, j+1);
+            }
+        }
+    }
 
 }
 
@@ -88,12 +153,15 @@ int call_of_exercises(int a){
             return 0;
             break;
         case 5:
+            inverse_array();
             return 0;
             break;
         case 6:
+            distinct_elements();
             return 0;
             break;
         case 7:
+            intersection_array();
             return 0;
             break;
         case 8:
