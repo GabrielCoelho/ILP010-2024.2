@@ -56,10 +56,10 @@ Defina uma estrutura `Conta` para armazenar informações do titular da conta e 
 ## Integrantes
 
 - Gabriel Coelho Soares 
-- ????
-- ????
-- ????
-- ????
+- Mateus Araújo
+- Marcos Moreira Martins
+- Thaíto Gabriel Batalini
+- «Vago»
 
 ##### Maiores Informações: 
 [Acesse aqui](https://maromo71.notion.site/Projetos-em-Linguagem-C-9b216f9bf2ee476abd031061966c8512)
