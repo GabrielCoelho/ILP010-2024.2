@@ -1,10 +1,8 @@
 # Projeto ILP010 2024 (2º Semestre ADS.Noite)
 
-## Título/Tema do Projeto
+## Simulador de Caixa Eletrônico
 
-### Simulador de Caixa Eletrônico
-
-##### Requisitos Detalhados:
+### Requisitos Detalhados:
 
 - **Estrutura de Dados para Conta Bancária:**
 Defina uma estrutura `Conta` para armazenar informações do titular da conta e o saldo atual:
