@@ -57,7 +57,7 @@ Defina uma estrutura `Conta` para armazenar informações do titular da conta e 
 
 - [Gabriel Coelho Soares](https://github.com/GabrielCoelho)
 - [Mateus Araújo](https://github.com/M-Araujo26)
-- Marcos Moreira Martins
+- [Marcos Moreira Martins](https://github.com/hmindiano)
 - Thaíto Gabriel Batalini
 - «Vago»
 
