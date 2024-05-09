@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
       break;
       // 9 para sair do programa e imprimir no arquivo
     case 9:
-      printf("Obrigado por utilizar nosso programa!\nSaindo com segurança...");
+      printf("Obrigado por utilizar nosso programa!\nSaindo com segurança...\n\n");
       FILE *file_agencia = fopen(arquivo_nome, "w");
       for (int i = 0; i < clientes_cadastrados; i++) {
         fprintf(file_agencia, "%d %d %s %s %d %.2lf %d\n",
