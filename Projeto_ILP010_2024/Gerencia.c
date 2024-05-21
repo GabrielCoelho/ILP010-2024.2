@@ -9,17 +9,15 @@
  * Retorna o valor digitado do menu exibido no terminal
  */
 int exibe_inicio_banco() {
-  int recebe_agencia;
+  int recebe_conta;
   system("clear");
   printf("----------------------------------------\n");
-  printf("------ Banco do Batata - v1.1.9 --------\n");
+  printf("------ Banco do Batata - v2.0.0 --------\n");
   printf("----------------------------------------\n\n\n");
-  printf("Agências em toda a região da Baixa Mogiana \n123 - Mogi Guaçu\t125 "
-         "- Mogi Mirim\n129 - Itapira\t\t130 - Estiva Gerbi\n9 - Para sair do "
-         "programa\n");
-  printf("\n\nDigite qualquer número de agência para entrar no sistema: ");
-  scanf("%d", &recebe_agencia);
-  return recebe_agencia;
+  printf("Agências em toda a região da Baixa Mogiana \nPara sair, digite 9!\n");
+  printf("\n\n Entre com seu login (número da conta): ");
+  scanf("%d", &recebe_conta);
+  return recebe_conta;
 }
 
 /** Exibe Menu Gerente()

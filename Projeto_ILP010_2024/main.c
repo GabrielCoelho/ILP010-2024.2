@@ -10,20 +10,18 @@ int main(int argc, char *argv[]) {
   // Declaração das Variáveis
   Cliente clientes_agencia[10];
   char arquivo_nome[10] = "banco.tbd";
-  int senha_banco_gerencia = 0, resp_menu_gerente = 0, menu_movimentacao = 0,
+  int numero_conta_pesquisada = 0, resp_menu_gerente = 0, menu_movimentacao = 0,
       clientes_cadastrados = verifica_cadastrados(), conta_buscada,
       indice_encontrado;
   atualiza_clientes(clientes_agencia, 10);
 
   // Início do Banco.
-  while (senha_banco_gerencia == 0) {
+  while (numero_conta_pesquisada == 0) {
     // Recebe o retorno do início e verifica se a agência está cadastrada
-    senha_banco_gerencia = exibe_inicio_banco();
-    switch (senha_banco_gerencia) {
+    numero_conta_pesquisada = exibe_inicio_banco();
+
+    switch (numero_conta_pesquisada) {
     case 123:
-    case 125:
-    case 129:
-    case 130:
       printf("Você está prestes a entrar no banco. Por favor, aguarde... \n\n");
       sleep(3);
       while (resp_menu_gerente == 0) {
@@ -80,7 +78,7 @@ int main(int argc, char *argv[]) {
           break;
           // Volta para o menu principal
         case 9:
-          senha_banco_gerencia = 0;
+          numero_conta_pesquisada = 0;
           break;
           // Caso não tenha digitado entre 1-3 ou 9 para sair
         default:
@@ -92,7 +90,7 @@ int main(int argc, char *argv[]) {
       break;
       // 9 para sair do programa e imprimir no arquivo
     case 9:
-      printf("Obrigado por utilizar nosso programa!\nSaindo com segurança...\n\n");
+      printf("Obrigado por utilizar nosso programa!\nSaindo com segurança...");
       FILE *file_agencia = fopen(arquivo_nome, "w");
       for (int i = 0; i < clientes_cadastrados; i++) {
         fprintf(file_agencia, "%d %d %s %s %d %.2lf %d\n",
@@ -108,12 +106,18 @@ int main(int argc, char *argv[]) {
       // Caso o usuário digite uma agência inexistente, retorna ao menu
       // principal
     default:
-      printf("Não temos nenhuma agência com este número.\nPara entrar no "
-             "sistema, entre com um número de nossas agências\nLevando você de "
-             "volta ao início...\n\n");
+    if(encontrar_conta(clientes_agencia, numero_conta_pesquisada, 10) == 20 ){
+      printf("Conta não encontrada...\nTente novamente...\n");
+      numero_conta_pesquisada = 0;
       sleep(2);
-      senha_banco_gerencia = 0;
+      continue;
+    }else{
+      int indice_da_conta_cliente = encontrar_conta(clientes_agencia, numero_conta_pesquisada, 10);
+      printf("A programar...\n\n");
+      sleep(2);
+      numero_conta_pesquisada = 0;
       break;
+      }
     }
   }
   return EXIT_SUCCESS;
