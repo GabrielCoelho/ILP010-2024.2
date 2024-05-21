@@ -59,7 +59,7 @@ Defina uma estrutura `Conta` para armazenar informações do titular da conta e 
 - [Gabriel Vinholi](https://github.com/gvinholi)
 - [Mateus Araújo](https://github.com/M-Araujo26)
 - [Marcos Moreira Martins](https://github.com/hmindiano)
-- Thaíto Gabriel Batalini
+- [Thaíto Gabriel Batalini](https://github.com/thaitoGB)
 
 ##### Maiores Informações: 
 [Acesse aqui](https://maromo71.notion.site/Projetos-em-Linguagem-C-9b216f9bf2ee476abd031061966c8512)
