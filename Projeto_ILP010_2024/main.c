@@ -176,6 +176,46 @@ int main(int argc, char *argv[]) {
               break;
             }
           }
+          if (resp_menu_gerente == 9) {
+            continue;
+          }
+        } else {
+          menu_movimentacao =
+              movimentar_conta(clientes_agencia, conta_encontrada_inicio, 10);
+          if (menu_movimentacao == 1) {
+            numero_conta_pesquisada = 0;
+            continue;
+          } else {
+            printf("Pane "
+                   "no "
+                   "siste"
+                   "m"
+                   "a, "
+                   "algum"
+                   "a"
+                   " cois"
+                   "a"
+                   " está"
+                   " "
+                   "desco"
+                   "n"
+                   "figur"
+                   "a"
+                   "da\nS"
+                   "a"
+                   "indo "
+                   "do "
+                   "progr"
+                   "a"
+                   "ma "
+                   "com "
+                   "segur"
+                   "a"
+                   "nça.."
+                   ".");
+            sleep(4);
+            return 0;
+          }
         }
       }
     }
