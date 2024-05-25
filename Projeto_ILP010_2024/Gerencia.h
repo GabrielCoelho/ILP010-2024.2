@@ -15,4 +15,5 @@ int transferencia_entre_contas(Cliente c[], int indice_da_conta);
 int pix_entre_contas(Cliente c[], int indice_da_conta);
 int movimentar_conta(Cliente c[], int indice_da_conta, int tamanho_agencia);
 void cria_conta_cliente(Cliente c[], int tamanho_agencia);
+void imprime_relatorio(int operacao, char s[11], int conta, int conta_destino, double saldo_antigo, double saldo_novo, double valor_movimentacao);
 #endif // !GERENCIA_H_INCLUDED

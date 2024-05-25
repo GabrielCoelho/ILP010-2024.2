@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include <unistd.h>
 
 /** Exibe Início Banco()
@@ -186,9 +187,17 @@ int saque_deposito_conta(int operacao, Cliente c[], int indice_da_conta) {
     printf("Preparando para realizar o %s...\n\n", mensagem_operacao);
     sleep(2);
     if (operacao == 1) {
+      imprime_relatorio(1, mensagem_operacao, c[indice_da_conta].conta_corrente,
+                        0, c[indice_da_conta].saldo_atual,
+                        c[indice_da_conta].saldo_atual - valor_saque_dep,
+                        valor_saque_dep);
       c[indice_da_conta].saldo_atual =
           c[indice_da_conta].saldo_atual - valor_saque_dep;
     } else {
+      imprime_relatorio(2, mensagem_operacao, c[indice_da_conta].conta_corrente,
+                        0, c[indice_da_conta].saldo_atual,
+                        c[indice_da_conta].saldo_atual + valor_saque_dep,
+                        valor_saque_dep);
       c[indice_da_conta].saldo_atual =
           c[indice_da_conta].saldo_atual + valor_saque_dep;
     }
@@ -230,6 +239,12 @@ int transferencia_entre_contas(Cliente c[], int indice_da_conta) {
     } else {
       printf("Preparando para realizar a transferência...\n\n");
       sleep(2);
+      imprime_relatorio(4, "Transf.", c[indice_da_conta].conta_corrente,
+                        c[indice_conta_destino].conta_corrente,
+                        c[indice_da_conta].saldo_atual,
+                        c[indice_da_conta].saldo_atual - valor_transferencia -
+                            22.50,
+                        valor_transferencia + 22.50);
       c[indice_da_conta].saldo_atual =
           c[indice_da_conta].saldo_atual - valor_transferencia - 22.50;
       c[indice_conta_destino].saldo_atual =
@@ -272,6 +287,10 @@ int pix_entre_contas(Cliente c[], int indice_da_conta) {
     } else {
       printf("Preparando para realizar o PIX...\n\n");
       sleep(2);
+      imprime_relatorio(3, "PIX", c[indice_da_conta].conta_corrente,
+                        c[indice_pix_destino].conta_corrente,
+                        c[indice_da_conta].saldo_atual,
+                        c[indice_da_conta].saldo_atual - valor_pix, valor_pix);
       c[indice_da_conta].saldo_atual =
           c[indice_da_conta].saldo_atual - valor_pix;
       c[indice_pix_destino].saldo_atual =
@@ -428,5 +447,33 @@ void cria_conta_cliente(Cliente *c, int tamanho_agencia) {
         }
       }
     }
+  }
+}
+
+/* Imprime Relatório()
+ * Função para manter um relatório de todas as movimentações realizadas, seja
+ * por um cliente ou por um Gerente.
+ * @param operacao - 1 para saque, 2 para depósito, 3 para pix, 4 para
+ * transferência
+ * @param s - Texto a apresentar no arquivo de relatório
+ * @param conta - conta na qual está sendo realizada a operação inicial
+ * @param saldo_antigo - saldo antes da execução da operação
+ * @param saldo_novo - saldo após a execução da operação
+ * @param valor - quantia em R$ da operação
+ */
+void imprime_relatorio(int operacao, char s[11], int conta, int conta_destino,
+                       double saldo_antigo, double saldo_novo, double valor) {
+  time_t tempo = time(NULL);
+  FILE *fwr = fopen("banco.rel", "a+");
+  if (operacao == 1 || operacao == 2) {
+    fprintf(fwr, "%s - %s / %d / %.2lf / %.2lf / %.2lf\n", ctime(&tempo), s,
+            conta, saldo_antigo, valor, saldo_novo);
+  } else if (operacao == 3 || operacao == 4) {
+    fprintf(fwr, "%s - %s / %d / %.2lf / %.2lf / %.2lf -> destino: %d\n",
+            ctime(&tempo), s, conta, saldo_antigo, valor, saldo_novo,
+            conta_destino);
+  } else {
+    fprintf(fwr, "%s - desconhecido / %d / %.2lf / %.2lf / %.2lf\n",
+            ctime(&tempo), conta, saldo_antigo, valor, saldo_novo);
   }
 }
