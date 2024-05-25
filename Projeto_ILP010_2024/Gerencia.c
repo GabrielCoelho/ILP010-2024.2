@@ -457,6 +457,7 @@ void cria_conta_cliente(Cliente *c, int tamanho_agencia) {
  * transferência
  * @param s - Texto a apresentar no arquivo de relatório
  * @param conta - conta na qual está sendo realizada a operação inicial
+ * @param conta_destino - conta na qual a quantia será transferida
  * @param saldo_antigo - saldo antes da execução da operação
  * @param saldo_novo - saldo após a execução da operação
  * @param valor - quantia em R$ da operação
