@@ -291,17 +291,19 @@ int pix_entre_contas(Cliente c[], int indice_da_conta) {
  */
 int movimentar_conta(Cliente c[], int indice_da_conta, int tamanho_agencia) {
   int opcao = 0;
-  system("clear");
-  printf("----------------------------------------\n");
-  printf("--------- Movimentação da Conta: -------\n");
-  printf("---- Ag: %d -------- Conta: %d ----\n",
-         c[indice_da_conta].agencia_num, c[indice_da_conta].conta_corrente);
-  printf("--------- Cliente %s %s   \n", c[indice_da_conta].nome_cliente,
-         c[indice_da_conta].sobrenome_cliente);
-  printf("----------------------------------------\n");
-  printf("----------------------------------------\n");
-  printf("----------------------------------------\n\n\n");
   while (opcao == 0) {
+    system("clear");
+    printf("----------------------------------------\n");
+    printf("----------------------------------------\n");
+    printf("--------- Movimentação da Conta: -------\n");
+    printf("---- Ag: 123 -------- Conta: %d -------\n",
+           c[indice_da_conta].conta_corrente);
+    printf("--------- Cliente %s %s   \n", c[indice_da_conta].nome_cliente,
+           c[indice_da_conta].sobrenome_cliente);
+    printf("--------- Saldo em Conta R$ %.2lf ----\n",
+           c[indice_da_conta].saldo_atual);
+    printf("----------------------------------------\n");
+    printf("----------------------------------------\n\n\n");
     printf("Selecione a partir do menu abaixo: \n1. Saque\t2. "
            "Depósito\n3. "
            "Pix\t\t4. Transferência\n9. Voltar ao início\n");
@@ -314,6 +316,7 @@ int movimentar_conta(Cliente c[], int indice_da_conta, int tamanho_agencia) {
       break;
     case 3:
       pix_entre_contas(c, indice_da_conta);
+      opcao = 0;
       break;
     case 4:
       transferencia_entre_contas(c, indice_da_conta);
