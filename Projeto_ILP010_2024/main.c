@@ -27,12 +27,12 @@ int main(int argc, char *argv[]) {
              "segurança...");
       FILE *file_agencia = fopen(arquivo_nome, "w");
       for (int i = 0; i < clientes_cadastrados; i++) {
-        fprintf(file_agencia, "%d %d %s %s %d %.2lf %d\n",
+        fprintf(file_agencia, "%d %s %s %d %d %.2lf %d\n",
                 clientes_agencia[i].codigo_cliente,
-                clientes_agencia[i].agencia_num,
                 clientes_agencia[i].nome_cliente,
                 clientes_agencia[i].sobrenome_cliente,
                 clientes_agencia[i].conta_corrente,
+                clientes_agencia[i].senha_conta,
                 clientes_agencia[i].saldo_atual, clientes_agencia[i].chave_pix);
       }
       sleep(2);
@@ -45,11 +45,12 @@ int main(int argc, char *argv[]) {
       printf("Conta não encontrada, tente novamente.\n");
       sleep(3);
       numero_conta_pesquisada = 0;
+      continue;
     } else {
       printf("Digite a senha: ");
       scanf("%d", &senha_conta);
       if (senha_conta !=
-          clientes_agencia[conta_encontrada_inicio].agencia_num) {
+          clientes_agencia[conta_encontrada_inicio].senha_conta) {
         printf("Senha incorreta\nTente novamente\n");
         sleep(2);
         numero_conta_pesquisada = 0;

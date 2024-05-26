@@ -51,12 +51,12 @@ int exibe_menu_gerente() {
 void atualiza_clientes(Cliente c[], int tamanho_agencia) {
   FILE *file_agencia = fopen("banco.tbd", "r");
   int contagem_clientes = 0;
-  while (fscanf(file_agencia, "%d %d %s %s %d %lf %d",
+  while (fscanf(file_agencia, "%d %s %s %d %d %lf %d",
                 &c[contagem_clientes].codigo_cliente,
-                &c[contagem_clientes].agencia_num,
                 c[contagem_clientes].nome_cliente,
                 c[contagem_clientes].sobrenome_cliente,
                 &c[contagem_clientes].conta_corrente,
+                &c[contagem_clientes].senha_conta,
                 &c[contagem_clientes].saldo_atual,
                 &c[contagem_clientes].chave_pix) != EOF) {
     /* Imprime na tela o cliente recebido
@@ -64,7 +64,7 @@ void atualiza_clientes(Cliente c[], int tamanho_agencia) {
     printf("Código: %d\nAgência: %d\nNome: %s %s\nConta: %d\nSaldo: "
     "%.2lf\nPIX: %d\n\n",
     c[contagem_clientes].codigo_cliente,
-    c[contagem_clientes].agencia_num,
+    c[contagem_clientes].senha_conta,
     c[contagem_clientes].nome_cliente,
     c[contagem_clientes].sobrenome_cliente,
     c[contagem_clientes].conta_corrente,
@@ -90,8 +90,8 @@ void exibe_saldo(Cliente c[], int indice_da_conta) {
   system("clear");
   printf("----------------------------------------\n");
   printf("--------- Saldo da Conta: -------\n");
-  printf("---- Ag: %d -------- Conta: %d ----\n",
-         c[indice_da_conta].agencia_num, c[indice_da_conta].conta_corrente);
+  printf("---- Ag: 123 -------- Conta: %d ----\n",
+         c[indice_da_conta].conta_corrente);
   printf("--------- Cliente %s %s   \n", c[indice_da_conta].nome_cliente,
          c[indice_da_conta].sobrenome_cliente);
   printf("--------- SALDO: R$ %.2lf\n", c[indice_da_conta].saldo_atual);
@@ -398,30 +398,12 @@ void cria_conta_cliente(Cliente *c, int tamanho_agencia) {
         }
       }
     }
-    while (verifica_agencia == 0) {
-      printf("por fim, indique a agência na qual a conta será "
-             "criada, "
-             "lembrando:\n123 - Mogi Guaçu\t\t125 - Mogi "
-             "Mirim\n129 - "
-             "Itapira\t\t\t130 - Estiva Gerbi\n\n Agência: ");
-      scanf("%d", &verifica_agencia);
-      switch (verifica_agencia) {
-      case 123:
-      case 125:
-      case 129:
-      case 130:
-        c[tamanho_agencia].agencia_num = verifica_agencia;
-        break;
-      default:
-        printf("Por favor, digite uma agência existente\n\n");
-        sleep(1);
-        verifica_agencia = 0;
-        break;
-      }
-    }
+    printf("Digite uma senha numérica para a conta: ");
+    scanf("%d", &c[tamanho_agencia].senha_conta);
     printf("Agora iremos criar a chave pix para esta conta!\nO "
            "padrão são "
            "quatro números, podendo inserir mais ou menos\n");
+    c[tamanho_agencia].saldo_atual = 0.00;
     printf("Informe a chave desejada: ");
     while (chave_pix == 0) {
       scanf("%d", &chave_pix);
