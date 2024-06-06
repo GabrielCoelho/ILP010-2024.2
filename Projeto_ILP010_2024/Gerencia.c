@@ -478,6 +478,10 @@ void imprime_relatorio(int operacao, char s[11], int conta, int conta_destino,
   }
 }
 
+/* Função Exibe Relatório
+ * Exibe na tela o conteúdo do arquivo "banco.rel". O programa realiza 
+ * uma breve pausa antes de retornar ao menu anterior.
+ */
 void exibe_relatorio() {
   system("clear");
   time_t tempo = time(NULL);
