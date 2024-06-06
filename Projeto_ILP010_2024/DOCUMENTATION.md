@@ -19,7 +19,7 @@ Para os clientes do "Banco do Batata" que tem interesse em realizar transações
 
 
 ## Diagrama de Caso de Uso 
-![](https://imgur.com/ROWOztD)
+![](https://i.imgur.com/ROWOztD.png)
 
 ## Descrição do Fluxo de Eventos Normal: Login
 1. O Cliente insere login e senha
@@ -61,11 +61,11 @@ Para os clientes do "Banco do Batata" que tem interesse em realizar transações
 5. Após a inserção, uma confirmação aparece na tela. 
 
 ### Diagramas de Atividades
-![](https://imgur.com/xj3dUFC)
+![](https://i.imgur.com/xj3dUFC.png)
 
-![](https://imgur.com/sbtgefe)
+![](https://i.imgur.com/sbtgefe.png)
 
-![](https://imgur.com/rD4nPip)
+![](https://i.imgur.com/rD4nPip.png)
 
 # Problemas e Desafios
 Há ainda uma questão de segurança na conta do gerente, existindo apenas uma conta para os gerentes de nossa agência. No entanto, como o "Banco do Batata" é um banco recente e localizado somente em uma única cidade (Mogi Guaçu). Assim, ambos compartilham o mesmo login e assinaram um termo de não utilização da conta como movimentação própria, sendo utilizada somente durante o trabalho na frente dos caixas. 
