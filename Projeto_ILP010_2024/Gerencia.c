@@ -39,7 +39,7 @@ int exibe_menu_gerente() {
       "Transferência\n\n");
   printf(
       "Escolha um menu:\n1. Movimentar uma Conta\n2. Abrir Conta\n3. "
-      "Consultar saldo de conta\n9. Voltar ao Início: ");
+      "Exibir Relatório\n9. Voltar ao Início: ");
   scanf("%d", &recebe_menu);
   return recebe_menu;
 }
@@ -476,4 +476,16 @@ void imprime_relatorio(int operacao, char s[11], int conta, int conta_destino,
     fprintf(fwr, "%s - desconhecido / %d / %.2lf / %.2lf / %.2lf\n",
             ctime(&tempo), conta, saldo_antigo, valor, saldo_novo);
   }
+}
+
+void exibe_relatorio() {
+  system("clear");
+  time_t tempo = time(NULL);
+  FILE *fro = fopen("banco.rel", "r");
+  int c;
+  while ((c = fgetc(fro)) != EOF) {
+    putchar(c);
+  }
+  printf("Retornando ao menu\nAguarde...\n\n");
+  sleep(10);
 }

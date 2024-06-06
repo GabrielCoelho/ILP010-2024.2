@@ -114,18 +114,7 @@ int main(int argc, char *argv[]) {
                 // Exibição do saldo da
                 // conta
               case 3:
-                printf("Por favor, informe o número da conta: ");
-                scanf("%d", &conta_buscada);
-                indice_encontrado =
-                    encontrar_conta(clientes_agencia, conta_buscada, 10);
-                if (indice_encontrado == 20) {
-                  printf(
-                      "Conta não encontrada\nRetornando ao "
-                      "menu gerencial\n\n");
-                  sleep(2);
-                } else {
-                  exibe_saldo(clientes_agencia, indice_encontrado);
-                }
+                exibe_relatorio();
                 resp_menu_gerente = 0;
                 break;
                 // Volta para o menu
