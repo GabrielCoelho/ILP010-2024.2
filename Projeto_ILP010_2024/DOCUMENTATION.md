@@ -1,5 +1,21 @@
 # Simulador de Caixa Eletrônico - "Banco do Batata"
 
+## Sumário
+- [Introdução](#Introdução)
+- - [Visão do Produto](#Visão-do-produto)
+- Diagrama de Caso de Uso
+- Descrição do Fluxo de Eventos - Login
+- - Exceção
+- Descrição do Fluxo de Eventos - Efetuar Saque
+- - Exceção
+- Descrição do Fluxo de Eventos - Transferência
+- - Exceção
+- Diagrama das Atividades
+- Problemas e Desafios
+- Conclusão
+
+
+
 ## Introdução
 Este simulador de caixa eletrônico realiza, dentro da própria máquina, funções de gerência do banco e funções da conta do cliente. Desde transferências, exibição de saldo, realização de saques e depósitos, até mesmo a visualização de relatórios de todas os registros realizados desde a implantação do sistema. 
 
