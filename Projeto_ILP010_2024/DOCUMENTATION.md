@@ -3,14 +3,14 @@
 ## Sumário
 - [Introdução](#Introdução)
 - - [Visão do Produto](#Visão-do-produto)
-- [[Diagrama de Caso de Uso](#Diagrama-do-caso-de-uso)
-- [Descrição do Fluxo de Eventos - Login](#Descricao-do-fluxo-de-eventos-login)
+- [Diagrama de Caso de Uso](#Diagrama-do-caso-de-uso)
+- [Descrição do Fluxo de Eventos - Login](#Descricao-do-fluxo-de-eventos-normal-login)
 - - Exceção
-- [Descrição do Fluxo de Eventos - Efetuar Saque](#Descricao-do-fluxo-de-eventos-efetuar-saque)
+- [Descrição do Fluxo de Eventos - Efetuar Saque](#Descricao-do-fluxo-de-eventos-normal-efetuar-saque)
 - - Exceção
-- [Descrição do Fluxo de Eventos - Transferência](#Descricao-do-fluxo-de-eventos-transferencia)
+- [Descrição do Fluxo de Eventos - Transferência](#Descricao-do-fluxo-de-eventos-normal-transferencia)
 - - Exceção
-- [Diagrama das Atividades](#Diagrama-das-atividades)
+- [Diagrama de Atividades](#Diagramas-de-atividades)
 - [Problemas e Desafios](#Problemas-e-desafios)
 - [Conclusão](#Conclusao)
 
