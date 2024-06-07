@@ -8,7 +8,7 @@
 - - Exceção
 - [Descrição do Fluxo de Eventos - Efetuar Saque](#Descrição-do-fluxo-de-eventos-normal-efetuar-saque)
 - - Exceção
-- [Descrição do Fluxo de Eventos - Transferência](#Descrição-do-fluxo-de-eventos-normal-transferencia)
+- [Descrição do Fluxo de Eventos - Transferência](#Descrição-do-fluxo-de-eventos-normal-transferência)
 - - Exceção
 - [Diagrama de Atividades](#Diagramas-de-atividades)
 - [Problemas e Desafios](#Problemas-e-desafios)
